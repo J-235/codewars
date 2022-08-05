@@ -4,6 +4,8 @@
 // with the p(i) in increasing order and n(i) empty if n(i) is 1.
 // Example: n = 86240 should return "(2**5)(5)(7**2)(11)"
 
+
+// First Approach:
 export const primeFactors = (n:number): string => {
   
   let result = '';
@@ -29,4 +31,21 @@ export function isPrime(num: number): boolean {
     if(num % i === 0) return false;
   }
   return true;
+}
+
+
+// Refactoring after reading other solutions:
+export const primeFactors = (n:number): string => {
+  let result = '';
+  let prime = 2;
+  while(n > 1) {
+    let count = 0;
+    while(n % prime === 0) {
+      n /= prime;
+      count++;
+    }
+    if(count) result += `(${prime}${count > 1 ? `**${count}` : ``})`;
+    prime++;
+  }
+  return result;
 }
