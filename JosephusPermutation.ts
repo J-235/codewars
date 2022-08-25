@@ -25,6 +25,24 @@ So our final result is:
 josephus([1,2,3,4,5,6,7],3)==[3,6,2,7,5,1,4]
 */
 
+
+// solution after reading other solutions:
+
+export const josephus = (items: any[], k: number): any[] => {
+  
+  const result = [];
+  let i: number = 0;
+  
+  while(items.length > 0) {
+    i = (i + k - 1) % items.length;
+    result.push(items[i]);
+    items.splice(i, 1);
+  }
+  return result;
+}
+
+// initial solution:
+
 export const josephus = (items: any[], k: number): any[] => {
     
   let result: any[] = [];
