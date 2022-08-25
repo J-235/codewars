@@ -30,7 +30,7 @@ josephus([1,2,3,4,5,6,7],3)==[3,6,2,7,5,1,4]
 
 export const josephus = (items: any[], k: number): any[] => {
   
-  const result = [];
+  const result: number[] = [];
   let i: number = 0;
   
   while(items.length > 0) {
